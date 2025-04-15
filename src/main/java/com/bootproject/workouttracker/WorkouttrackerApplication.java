@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Bean;
 
 import com.bootproject.workouttracker.run.Location;
 import com.bootproject.workouttracker.run.Run;
+import com.bootproject.workouttracker.run.RunRepository;
 
 @SpringBootApplication
 public class WorkouttrackerApplication {
@@ -35,10 +36,11 @@ public class WorkouttrackerApplication {
 	}
 
 	@Bean
-	CommandLineRunner runner() {
+	CommandLineRunner runner(RunRepository runRepository) {
 		return args -> {
 			Run run = new Run(1, "First run", LocalDateTime.now(), LocalDateTime.now().plus(30, ChronoUnit.MINUTES), 3,
 					Location.INDOOR);
+			runRepository.create(run);
 			log.info("run : " + run);
 		};
 	}
