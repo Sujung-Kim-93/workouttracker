@@ -35,14 +35,15 @@ public class WorkouttrackerApplication {
 		 */
 	}
 
-	@Bean
-	CommandLineRunner runner(RunRepository runRepository) {
-		return args -> {
-			Run run = new Run(1, "First run", LocalDateTime.now(), LocalDateTime.now().plus(30, ChronoUnit.MINUTES), 3,
-					Location.INDOOR);
-			runRepository.create(run);
-			log.info("run : " + run);
-		};
-	}
+	// @Bean
+	// CommandLineRunner runner(RunRepository runRepository) {
+	// return args -> {
+	// Run run = new Run(1, "First run", LocalDateTime.now(),
+	// LocalDateTime.now().plus(30, ChronoUnit.MINUTES), 3,
+	// Location.INDOOR);
+	// runRepository.create(run);
+	// log.info("run : " + run);
+	// };
+	// }
 
 }
